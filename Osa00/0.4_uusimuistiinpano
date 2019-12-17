@@ -1,0 +1,38 @@
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: main.js
+
+selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: { content: "HTML is easy", date: "2019-05-23" }, ...
+
+selain:
+selain suorittaa tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle 
+
+käyttäjä:
+käyttäjä tekee muistiinpanot ja painaa enter
+
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+palvelin:
+palvelin kirjaa omaan taulukkoon nimeltään "notes"
+uuden muistiinpanon tämän jälkeen palvelin määrää
+uudelleenohjauksen selaimelle
+
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: main.js
+
+...
